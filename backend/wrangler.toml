@@ -1,7 +1,0 @@
-name = "backend"
-compatibility_date = "2023-12-01"
-
-[vars]
-MY_VARIABLE = "production_value"
-
-DATABASE_URL=""
