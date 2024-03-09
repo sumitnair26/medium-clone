@@ -30,4 +30,5 @@ app.get('/api/v1/blog/bulk', (c) => {
   return c.text('Hello Hono! bulk')
 })
 
+
 export default app

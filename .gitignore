@@ -1,13 +1,14 @@
 node_modules
+# Keep environment variables out of version control
 dist
 .wrangler
 .dev.vars
 .env
+wrangler.toml
+/wrangler.toml
 
 # Change them to your taste:
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
 bun.lockb
-wrangler.toml
-/wrangler.toml
