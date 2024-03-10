@@ -18,8 +18,10 @@
  - jwt for authentication
 
   ```
+
+```
 npm install
 
 npm run dev
-
 ```
+
