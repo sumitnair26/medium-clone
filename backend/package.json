@@ -4,6 +4,9 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@100xdevs/common-app": "^1.0.3",
+    "@sumitnair26/medium-common": "^1.0.8",
+    "axios": "^1.6.7",
     "hono": "^4.0.9"
   },
   "devDependencies": {
