@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://backend.sumit-nair26.workers.dev/"

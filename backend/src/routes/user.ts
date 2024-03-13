@@ -17,7 +17,7 @@ userRouter.post('/signup', async (c) => {
       datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
     const body = await c.req.json();
-    const { success } = signupInput.safeParse(body);
+    const { success } = signinInput.safeParse(body);
     if (!success) {
         c.status(411)
         return c.json({
