@@ -1,7 +1,16 @@
+import { Auth } from "../components/Auth"
+import { Quote } from "../components/Quote"
+
 export const Signin = () => {
     return <div>
-        <h1 className="text-3xl font-bold underline">
-      Hello world!
-</h1>
-    </div>
-}   
+                <div className="grid grid-cols-2">
+                    <div>
+                        <Auth type="signin" />
+                    </div>
+                    <div>
+                        <Quote />
+                    </div>
+                </div>
+            </div>
+
+}

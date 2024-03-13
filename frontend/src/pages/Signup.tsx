@@ -5,9 +5,9 @@ export const Signup = () => {
     return <div>
                 <div className="grid grid-cols-2">
                     <div>
-                        <Auth />
+                        <Auth type="signup"/>
                     </div>
-                    <div ClassName="visible lg:invisible">
+                    <div >
                         <Quote />
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import { Link } from "react-router-dom";
 import { signupInput } from "@sumitnair26/medium-common";
-export const Auth = (type: {type:"signup" | "signin"}) => {
+export const Auth = ({type}: {type:"signup" | "signin"}) => {
+    
     const [postInputs, setPostInputs] = useState<signupInput>({
         name:"",
         username:"",
@@ -15,8 +16,8 @@ export const Auth = (type: {type:"signup" | "signin"}) => {
                                 Create an account
                             </div>
                             <div className="text-slate-400">
-                                Already have an account?
-                                <Link className="pl-2 underline" to={"/signin"}> Login </Link> 
+                                {type==="signin"? "Don't have an account?":"Already have an account?"}
+                                <Link className="pl-2 underline" to={type==="signin"?"/signup":"/signin"}> {type === "signin"? "sign up": "Sign in"} </Link> 
                             </div>
                         </div>
                         <div className="pt-5">
@@ -39,6 +40,9 @@ export const Auth = (type: {type:"signup" | "signin"}) => {
                                 })
                             }} />
                         </div>
+
+                        <button type="button" className="mt-8 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                            {type==="signup"? "Sign up" : "Sign in"} </button>
                 </div>
             </div>
           </div>
