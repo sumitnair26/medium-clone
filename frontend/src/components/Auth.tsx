@@ -21,7 +21,7 @@ export const Auth = ({type}: {type:"signup" | "signin"}) => {
               'Content-Length': postInputs.length
             }
           });
-        const jwt = response.data.jw;
+        const jwt = response.data.jwt;
         localStorage.setItem("token", jwt);
         navigate("/blogs");
     } catch (e) {
