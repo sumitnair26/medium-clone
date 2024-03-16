@@ -12,12 +12,13 @@ interface Blog {
 }
 
 export const useBlogs = () => {
+    console.log(localStorage.getItem("token"));
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([]);
 
     useEffect(()=>{
-        axios.get(`${BACKEND_URL}api/v1/blog/bulk`,{
-            Headers: {
+        axios.get(`${BACKEND_URL}api/v1/blog/bulk`, {
+            headers: {
                 Authorization: localStorage.getItem("token")
             }
         }).then(response=>{

@@ -13,13 +13,12 @@ export const Blogs = () => {
     return <div>
         <Appbar />
         <div className='flex justify-center'>
-            <div className='max-w-xl'>
-        {blogs.map(blog => <BlogCard 
+            <div>
+                    {blogs.map(blog => <BlogCard 
                     authorName={blog.author.name || "Sumit"} 
                     content={blog.content} 
                     publishedDate="26/02/2024" 
-         />)}
-                
+                    />)}               
             </div>
         </div>
     </div>
