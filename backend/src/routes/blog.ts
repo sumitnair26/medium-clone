@@ -59,7 +59,6 @@ blogRouter.get('/', (c) => {
                 id: blog.id
             })
         } catch (error) {
-            console.log(error);
             c.status(409);
             return c.text('Something went wrong !!')
         }

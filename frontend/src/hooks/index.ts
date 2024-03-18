@@ -23,8 +23,6 @@ export const useBlog = ( {id} : {id: string} ) => {
         }).then(response=>{
             setBlog(response.data.blog);
             setLoading(false)
-            console.log('first response')
-            console.log(response.data.blog);
         })
     },[id])
     return {
