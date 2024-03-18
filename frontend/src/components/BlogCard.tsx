@@ -35,7 +35,7 @@ export const BlogCard = ({
         <div className="tet-xl font-semibold pt-2">
             {title}
         </div>
-        <div className="tet-xl font-thin">
+        <div className="tet-xl font-thin justify-evenly">
             {content.slice(0, 100) + "....."}
         </div>
         <div className="text-slate-500 text-sm font-thin pt-4">
@@ -48,7 +48,7 @@ export const BlogCard = ({
     </Link>
 }
 
-function Circle() {
+export function Circle() {
     return <div className="h-1 w-q rounded-full bg-slate-500">
 
     </div>

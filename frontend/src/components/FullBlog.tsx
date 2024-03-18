@@ -4,7 +4,6 @@ import { Avatar } from "./BlogCard";
 
 
 export const FullBlog = ({blog}: {blog: Blog}) => {
-    console.log(blog);
    return <div>
         <Appbar />
         <div className="flex justify-center">
@@ -16,7 +15,7 @@ export const FullBlog = ({blog}: {blog: Blog}) => {
                     <div className="text-slate-500 pt-2">
                         Posted on 17 March 2024
                     </div>
-                    <div className="pt-4">
+                    <div className="pt-4 content-evenly">
                         {blog.content}
                     </div>
                 </div>

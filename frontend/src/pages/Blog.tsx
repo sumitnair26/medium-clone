@@ -10,7 +10,7 @@ export const Blog = () => {
     });
     if (loading) {
         return <div>
-            loading......
+            Loading......
         </div>
     }
     return <div>
