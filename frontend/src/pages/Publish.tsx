@@ -3,6 +3,8 @@ import axios from "../../node_modules/axios/index";
 import { useNavigate } from "react-router-dom";
 import { Appbar } from "../components/Appbar";
 import { BACKEND_URL } from "../config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Publish = () => {
     const [title, setTitle] = useState("");
@@ -13,11 +15,16 @@ export const Publish = () => {
                 <Appbar />
                 <div className="flex justify-center pt-8">
                     <div className="max-w-screen-lg w-full">
+                    <ToastContainer />
                         <input onChange={(e)=>{
                             setTitle(e.target.value)
                         }} type="text" aria-describedby="helper-text-explanation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter Title" />
                         <TextEditor onChange={(e)=>setContent(e.target.value)} />
                         <button onClick={async()=>{
+                                if (!title || !content) {                                    
+                                        toast.error('Opps!!!! Title & Content Mandatory.');
+                                    return;
+                                }
                                const response = await axios.post(`${BACKEND_URL}api/v1/blog`,{
                                     title,
                                     content }, {
