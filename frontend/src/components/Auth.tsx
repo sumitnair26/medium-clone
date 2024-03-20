@@ -1,8 +1,10 @@
 import { ChangeEvent, useState, React } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signupInput } from "@sumitnair26/medium-common";
+import { signupInput,signinInput } from "@sumitnair26/medium-common";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Auth = ({type}: {type:"signup" | "signin"}) => {
     const navigate = useNavigate();
@@ -11,8 +13,16 @@ export const Auth = ({type}: {type:"signup" | "signin"}) => {
         email:"",
         password:""
     });
-
+    let  success  = signupInput.safeParse(postInputs);
     async function sendRequest() {
+    if (type==="signin") {
+        let success  =  signinInput.safeParse(postInputs);
+    } 
+    if (!success.success) {
+        console.log('error occured');
+        toast.error('Opps!!!! Validation Failed');
+        return;
+    }
     try {
         const response = await axios.post(`${BACKEND_URL}api/v1/user/${type==="signup"?"signup":"signin"}`,
             postInputs
@@ -33,6 +43,7 @@ export const Auth = ({type}: {type:"signup" | "signin"}) => {
     return <div className="h-screen flex justify-center flex-col" >
             <div className="flex justify-center">
                 <div>
+                        <ToastContainer />
                         <div className="px-10">
                             <div className="text-3xl fond-extrabold">
                                 Create an account
