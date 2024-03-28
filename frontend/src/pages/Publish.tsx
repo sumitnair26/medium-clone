@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const Publish = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [disableButton, setDisable] = useState(false);
     const navigate = useNavigate();
 
     return <div>
@@ -21,8 +22,9 @@ export const Publish = () => {
                         }} type="text" aria-describedby="helper-text-explanation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter Title" />
                         <TextEditor onChange={(e)=>setContent(e.target.value)} />
                         <button onClick={async()=>{
-                                if (!title || !content) {                                    
-                                        toast.error('Opps!!!! Title & Content Mandatory.');
+                                if (!title || !content) { 
+                                    setDisable(false);                                   
+                                    toast.error('Opps!!!! Title & Content Mandatory.');
                                     return;
                                 }
                                const response = await axios.post(`${BACKEND_URL}api/v1/blog`,{
@@ -37,7 +39,8 @@ export const Publish = () => {
                                 }else{
                                     alert('Something went wrong');
                                 }
-                            }} type="submit" className="mt-4 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200">
+                                setDisable(false);  
+                            }} type="submit" disabled={disableButton} className="mt-4 inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200">
                                 Publish post
                         </button>
                     </div>
